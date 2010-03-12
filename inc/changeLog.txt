@@ -1,0 +1,26 @@
+jquery.mb.maskedGallery
+
+1.9.1
+  start from hide to prevent images to be shown at start
+
+1.8.0 (New!)
+  Major issue released:
+  added:
+  transition:”crossfade”, // or “normal”,
+  Now the default transition type is crossfade; if you want to have a fadein/fadeout transition set this parameter to “normal”.
+
+1.5.0
+  Major issue released:
+  added:
+  changeOnClick:false,
+  navId:”",
+  nextPath:”",
+  prevPath:”",
+  If changeOnClick the component adds a next and prev buttons defined by the nextPath and prevPath params;
+  if you want to build your own navigationbar positioned where you want with your NEXT and PREV buttons defined as you want (the component’ll look for child elements of the specified ID with className “next” and “prev” and will attach events) just set the ID into the navId param and that’s all.
+  Now the component works also with just 1 image defined.
+  on each image you can define either a script or an URL to be executed once the image is shown
+  In case of jquery.metadata plug-in you’ll write:
+  <img src="images/2.jpg"images/2.jpg" url="mbMaskedGallery1.html">
+
+1.0 first release

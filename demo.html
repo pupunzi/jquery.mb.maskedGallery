@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--
+  ~ jquery.mb.components
+  ~ Copyright (c) 2001-2010. Matteo Bicocchi (Pupunzi); Open lab srl, Firenze - Italy
+  ~ email: info@pupunzi.com
+  ~ site: http://pupunzi.com
+  ~
+  ~ Licences: MIT, GPL
+  ~ http://www.opensource.org/licenses/mit-license.php
+  ~ http://www.gnu.org/licenses/gpl.html
+  -->
+
+<html>
+<head>
+  <title>MB MASKEDGALLERY</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js
+"></script>
+  <script type="text/javascript" src="inc/mbMaskedGallery.js"></script>
+  <script type="text/javascript" src="inc/jquery.metadata.js"></script>
+
+  <script type="text/javascript">
+    $(function(){
+      $("#g1").mbMaskGallery({
+        type:"normal",
+        galleryMask:"mask/monitor.png",
+        galleryUrl:"",
+        galleryColor:"black",
+        galleryLoader:"loader/loader_black.gif",
+        loaderOpacity:.3,
+        loader:true,
+        fadeTime: 500,
+        slideTimer: 6000,
+        changeOnClick:true,
+        navId:"" //nav1
+      });
+
+      $("#g2").mbMaskGallery( {
+        type:"random",
+        galleryMask:"mask/oblo.png",
+        galleryUrl:"",
+        galleryColor:"white",
+        galleryLoader:"loader/loader_white.gif",
+        loaderOpacity:1,
+        loader:false,
+        fadeTime: 1000,
+        slideTimer: 5000
+      });
+
+      $("#g3").mbMaskGallery( {
+        type:"random",
+        galleryMask:"mask/photo.png",
+        galleryUrl:"",
+        galleryColor:"white",
+        galleryLoader:"loader/loader_white.gif",
+        loaderOpacity:1,
+        loader:false,
+        fadeTime: 400,
+        slideTimer: 0,
+        changeOnClick:true,
+        navId:"" //nav1
+      });
+    });
+  </script>
+</head>
+<body>
+
+<!--
+inizio maskedGallery
+-->
+<div style="background:#FF6600 url(header_bgnd.jpg); padding:10px"><font color="#ffffff" size="+3" face="Courier New, Courier, mono"> mbMaskedGallery</font></div>
+
+<table style="width:100%; height:500px" border="0"><tr><td align="center" valign="top">
+  <div id="g1" class="galleryCont" style="display:inline-block;">
+    <img src="images/3.jpg" alt="">
+    <img src="images/2.jpg" class="{url:'mbMaskedGallery1.html'}" alt="" >
+    <img src="images/5.jpg"  class="{script:'alert(\'PIPPO\')'}" alt="">
+    <img src="images/4.jpg" alt="">
+    <img src="images/6.jpg" alt="">
+    <img src="images/7.jpg" alt="">
+    <img src="images/8.jpg" alt="">
+  </div>
+  <!--<div id="nav1"><span class="prev">prev</span>&nbsp;<span class="next">next</span></div>-->
+  <div id="g2" class="galleryCont" style="display:inline-block;">
+    <img src="images/3.jpg" alt="">
+    <img src="images/2.jpg" alt="">
+    <img src="images/5.jpg" alt="">
+    <img src="images/4.jpg" alt="">
+    <img src="images/6.jpg" alt="">
+    <img src="images/7.jpg" alt="">
+    <img src="images/8.jpg" alt="">
+  </div>
+  <div id="g3" class="galleryCont" style="display:inline-block;">
+    <img src="images/5.jpg" alt="">
+  </div>
+</td></tr></table>
+
+<!--
+fine maskedGallery
+-->
+<img src="valid-xhtml10.png" alt="vaildW3c">
+<div style="padding:6px;position:absolute;z-index:1000; bottom:10px; right:10px; -webkit-border-radius:7px;-moz-border-radius:7px;border:2px solid white; background:#000;text-align:center;color:white;">
+  Please support my work<br>with a free donation!<br><br>
+  <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=V6ZS8JPMZC446&amp;lc=GB&amp;item_name=mb%2eideas&amp;item_number=MBIDEAS&amp;currency_code=EUR&amp;bn=PP%2dDonationsBF%3abtn_donateCC_LG_global%2egif%3aNonHosted">
+    <img alt="PayPal" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0">
+  </a>
+</div>
+
+<script type="text/javascript">
+
+  //TEST chiamata JSON via API Patapage
+  $(function(){
+    var params = new Object();
+    params.siteId = "localhost:8080";
+    params.obj = "wiki";
+
+    var jsonPReq = new Object();
+    jsonPReq.url = "http://olpc038:8080/API/1.0b/json";
+    jsonPReq.data = params;
+    jsonPReq.type = "GET";
+    jsonPReq.dataType = "jsonp";
+
+    jsonPReq.error = function() {
+      $('#testResult').html("<p>Error!!</p>");
+    };
+    jsonPReq.success = function(json){
+      console.debug(json);
+    };
+    $.ajax(jsonPReq);
+  });
+
+</script>
+</body>
+</html>
