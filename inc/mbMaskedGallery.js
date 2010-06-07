@@ -11,7 +11,7 @@
 
 /*
  * Name:jquery.mb.maskedGallery
- * Version: 1.9.1
+ * Version: 1.9.5
 */
 
 (function($){
@@ -32,6 +32,7 @@
         loaderOpacity:.3,
         changeOnClick:false,
         navId:"",
+        descId:"",
         nextPath:"",
         prevPath:"",
         imagePosition:"center center",
@@ -142,9 +143,14 @@
             }, (thisGallery.options.fadeTime/2));
           });
         }
+        var desc="";
+        if ($(images[idx]).metadata().desc) desc= $(images[idx]).metadata().desc;
+        if(thisGallery.options.descId) $("#"+thisGallery.options.descId).html(desc).fadeIn();
+
       };
 
       function preloadImg(u){
+        if(thisGallery.options.descId) $("#"+thisGallery.options.descId).hide();
         var o = new Image ();
         o.onload = function (){changePhoto (u);};
         o.onerror = function (){alert ("can't load " + u);};
